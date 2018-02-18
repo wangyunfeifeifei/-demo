@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>笑脸</title>
+</head>
+<body>
+    <canvas id="canvas" width="300px" height="300px" style="background:#ddd"></canvas>
+    <script>
+        let canvas = document.getElementById('canvas');
+        let context = canvas.getContext('2d');
+        //画脸：画一个圆心为 (150, 150), 半径为 60 的圆形，且填充颜色为 '#fff'
+        context.fillStyle = '#fff';
+        context.beginPath();
+        context.arc(150, 150, 60, 0, 2*Math.PI);
+        context.fill();
+        //画左眼睛: 画一个圆心为 (130, 130), 半径为 8 的圆形，且填充颜色为 'rgb(0, 0, 0)'
+        context.fillStyle = 'rgb(0, 0, 0)';
+        context.beginPath();
+        context.arc(130, 130, 8, 0, 2*Math.PI);
+        context.fill();
+        //画右眼睛: 画一个圆心为 (170, 130), 半径为 8 的圆形，且填充颜色为 'rgb(0, 0, 0)'
+        context.beginPath();
+        context.arc(170, 130, 8, 0, 2*Math.PI);
+        context.fill();
+        //画嘴巴: 画一个圆心为 (150, 160), 半径为 25 的半圆，且填充颜色为 'rgba(255, 0, 0, 0.8)'
+        context.beginPath();
+        context.fillStyle = 'rgba(255, 0, 0, 0.8)';
+        context.arc(150, 160, 25, 0, Math.PI);
+        context.fill();
+        //画左腮红: 画一条线宽为 5 且起点为 (95, 152), 终点为 (110, 150) 的直线，直线颜色为 'pink'
+        context.beginPath();
+        context.strokeStyle = 'pink';
+        context.lineWidth = 5;
+        context.moveTo(95, 152);
+        context.lineTo(110, 150);
+        context.stroke();
+        //画右腮红: 画一条线宽为 5 且起点为 (190, 150), 终点为 (205, 152) 的直线，直线颜色为 'pink'
+        context.beginPath();
+        context.moveTo(190, 150);
+        context.lineTo(205, 152);
+        context.stroke();
+    </script>
+</body>
+</html>

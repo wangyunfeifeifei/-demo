@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>实现Tab组件</title>
+    <style>
+        ul {
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .tab-item {
+            display: inline-block;
+            list-style: none;
+            width: 50px;
+            height: 30px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        .panel {
+            margin-bottom: 30px;
+        }
+
+        .tab-item.active {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .panel {
+            border: 1px solid #ccc;
+            min-height: 100px;
+            padding: 10px;
+            width: 300px;
+            margin-top: 5px;
+        }
+
+        #container2 .tab-list {
+            width: 56px;
+            float: left;
+        }
+
+        #container2 .tab-item.active {
+            border-bottom: none;
+            background: #ccc;
+        }
+
+        #container2 .panel {
+            margin-left: 56px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container1">
+        <ul class=tab-list>
+            <li class="tab-item" href="panel-1">tab1</li>
+            <li class="tab-item" href="panel-2">tab2</li>
+            <li class="tab-item" href="panel-3">tab3</li>
+        </ul>
+        <div class="panel" id="panel-1">content1</div>
+        <div class="panel" id="panel-2">content2</div>
+        <div class="panel" id="panel-3">content3</div>
+    </div>
+    <div id="container2">
+        <ul class="tab-list">
+            <li class="tab-item" href="panel-a">tab a</li>
+            <li class="tab-item" href="panel-b">tab b</li>
+            <li class="tab-item" href="panel-c">tab c</li>
+        </ul>
+        <div class="panel" id="panel-a">content a</div>
+        <div class="panel" id="panel-b">content b</div>
+        <div class="panel" id="panel-c">content c</div>
+    </div>
+    <script>
+        /**
+         * 题目要求：
+         * 实现 Tab 组件，传入容器id，
+         * 规定容器内的有 .tab-item 类名的元素是 Tab 选择器，它的 href 属性对应了要显示内容元素的 id
+         * 点击 Tab 选择器元素会给该选择器增加 active 类名，并且显示对应的内容元素。
+         * .panels 类名的是内容容器，默认隐藏，只会显示当前选择的内容
+         */
+
+        /**
+         * Tab 组件
+         * @param {String} containerId 容器Id
+         */
+        function Tab(containerId) {
+            this.containerDOM = document.getElementById(containerId);
+            this.tabDOM = this.containerDOM.getElementsByClassName('tab-item');
+            this.panelDOM = this.containerDOM.getElementsByClassName('panel');
+            let self = this;
+            for(let i=0,len = this.tabDOM.length;i<len;i++){
+                this.tabDOM[i].addEventListener('click',function() {
+                    let index = i;
+                    self.active(index);
+                })
+            }
+            this.active(0);
+        }
+
+        /**
+         * active 方法，可以控制第几个 Tab 组件显示
+         * @param {Number} index 要显示的 tab 的序号，从0开始
+         */
+        Tab.prototype.active = function (index) {
+            for(let i=0,len=this.tabDOM.length;i<len;i++){
+                this.tabDOM[i].classList.remove('active');
+            }
+            for(let i=0,len=this.panelDOM.length;i<len;i++) {
+                this.panelDOM[i].style.display = 'none';
+            }
+            this.tabDOM[index].classList.add('active');
+            this.containerDOM.querySelector(`#${this.tabDOM[index].getAttribute('href')}`).style.display = 'block';
+        }
+
+        var tab = new Tab('container1');
+        tab.active(2);
+        var tab2 = new Tab('container2');
+    </script>
+</body>
+
+</html>

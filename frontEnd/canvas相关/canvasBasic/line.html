@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绘制线条</title>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500" style="background:#f5f5f5"></canvas>
+    <script>
+        let canvas = document.getElementById('canvas');
+        let context = canvas.getContext('2d');
+        //设置线宽
+        context.lineWidth = 10;
+        //设置颜色
+        context.strokeStyle = '#f40';
+        //开始路径
+        context.beginPath();
+        //设置起点坐标
+        context.moveTo(20, 20);
+        //移动路径
+        context.lineTo(200, 200);
+        //绘制
+        context.stroke();
+    </script>
+</body>
+</html>
