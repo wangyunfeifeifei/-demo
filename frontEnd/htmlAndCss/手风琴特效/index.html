@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+            width: 800px;
+            height: 250px;
+            margin: 100px auto;
+            font-size: 0;
+        }
+        ul li {
+            width: 200px;
+            height: 100%;
+            display: inline-block;
+            overflow: hidden;
+            transition: width 0.3s ease-in-out;
+        }
+        ul li img {
+            height: 100%;
+        }
+        ul:hover li {
+            width:150px;
+        }
+        ul li:hover {
+            width: 350px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><img src="./img/1.jpg"></li>
+        <li><img src="./img/2.jpg"></li>
+        <li><img src="./img/3.jpg"></li>
+        <li><img src="./img/4.jpg"></li>
+    </ul>
+</body>
+</html>
