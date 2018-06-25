@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @keyframes move {
+            from {
+                transform: translate(0, 0);
+            }
+            to {
+                transform: translate(-4690px, 0);
+            }
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        div {
+            margin: 100px auto;
+            width: 938px;
+            height: 316px;
+            list-style: none;
+            overflow: hidden;
+            border: 1px solid black;
+        }
+        ul {
+            width: 600%;
+            height: 100%;
+            font-size: 0;
+            animation: move 8s linear infinite;
+        }
+        ul:hover {
+            animation-play-state: paused;
+        }
+        ul li {
+            width: 936px;
+            height: 100%;
+            display: inline-block;
+        }
+        ul li img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><img src="./img/1.jpg"></li>
+            <li><img src="./img/2.jpg"></li>
+            <li><img src="./img/3.jpg"></li>
+            <li><img src="./img/4.jpg"></li>
+            <li><img src="./img/5.jpg"></li>
+            <li><img src="./img/1.jpg"></li>
+        </ul>
+    </div>
+</body>
+</html>
