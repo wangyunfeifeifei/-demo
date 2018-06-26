@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul {
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            list-style: none;
+            font-size: 0;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(-40deg) rotateY(40deg) rotateZ(0deg);
+        }
+        ul li {
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+            font-size: 30px;
+            font-weight: 600;
+            position: absolute;
+        }
+        ul li:nth-child(1) {
+            /* 左边的面 */
+            background: red;
+            transform: translateX(-100px) rotateY(90deg);
+        }
+        ul li:nth-child(2) {
+            /* 右边的面 */
+            background: blue;
+            transform: translateX(100px) rotateY(90deg);
+        }
+        ul li:nth-child(3) {
+            /* 正面 */
+            background: green;
+            transform: translateZ(-100px);
+        }
+        ul li:nth-child(4) {
+            /* 背面 */
+            background: yellow;
+            transform: translateZ(100px);
+        }
+        ul li:nth-child(5) {
+            /* 上面 */
+            background: orange;
+            transform: translateY(-100px) rotateX(90deg);
+        }
+        ul li:nth-child(6) {
+            /* 下面 */
+            background: pink;
+            transform: translateY(100px) rotateX(90deg);
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+</body>
+</html>
