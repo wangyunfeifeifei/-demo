@@ -13,8 +13,9 @@
             }
             Object.assign(self.options, options || {})
             self.__initDomEvent__()
-            self.__initSliderDragEvent__()
-            self.__initSliderHeight__()
+                .__initSliderHeight__()
+                .__initSliderDragEvent__()
+                .__bindContentScroll__()
         },
         /**
          * 初始化DOM引用
@@ -25,6 +26,7 @@
             this.$slider = $(options.sliderSelector)
             this.$bar = options.barSelector ? $(options.barSelector) : this.$slider.parent()
             this.$doc = $(doc)
+            return this
         },
         /**
          * 初始化滑块拖动功能
@@ -43,7 +45,7 @@
                     ev.preventDefault()
                     dragStartPagePosition = ev.pageY
                     dragStartScrollPosition = self.$content[0].scrollTop
-                    dragContentBarRate = self.getMaxScrollPosition() / self.getMaxSliderPosition();
+                    dragContentBarRate = self.getMaxScrollPosition() / self.getMaxSliderPosition()
                     doc.on('mousemove.scroll', function(ev) {
                         // 鼠标移动
                         ev.preventDefault()
@@ -56,6 +58,25 @@
                     })
                 })
             }
+            return this
+        },
+        //监听内容滚动， 同步滑块的位置
+        __bindContentScroll__() {
+            let self = this
+            self.$content.on('scroll', () => {
+                let sliderEl = self.$slider && self.$slider[0]
+                if (sliderEl) {
+                    sliderEl.style.top = `${self.getSliderPosition()}px`
+                }
+            })
+            return this
+        },
+        // 计算滑块当前应该的位置
+        getSliderPosition() {
+            let self = this,
+                maxSliderPosition = self.getMaxSliderPosition()
+
+            return Math.min(maxSliderPosition, maxSliderPosition * self.$content.scrollTop() / self.getMaxScrollPosition())
         },
         /**
          * 初始化滚动条滑块的高度
@@ -63,6 +84,7 @@
         __initSliderHeight__() {
             let height = this.$content.height() / Math.max(this.$content.height(), this.$content[0].scrollHeight) * this.$bar.height()
             this.$slider.height(height)
+            return this
         },
         // 内容可滚动高度
         getMaxScrollPosition() {
