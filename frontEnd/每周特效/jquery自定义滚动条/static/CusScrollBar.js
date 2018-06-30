@@ -97,6 +97,7 @@
             })
             return this
         },
+        // 绑定tab切换的事件
         __bindTabEvent__() {
             let self = this
             self.$tabItem.on('click', 'a', function(e) {
@@ -112,6 +113,7 @@
             })
             return this
         },
+        // 计算各部分内容的高度
         __calculateHeight__() {
             let self = this
             self.sectionHeight = []
@@ -124,6 +126,7 @@
             })
             return this
         },
+        // 切换标签
         changeTabActive(index) {
             let activeClass = this.options.tabActiveClass
             this.$tabItem.eq(index).addClass(activeClass).siblings().removeClass(activeClass)
