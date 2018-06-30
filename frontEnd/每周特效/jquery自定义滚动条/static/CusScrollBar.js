@@ -71,6 +71,10 @@
             })
             return this
         },
+        // 监听鼠标滚轮事件
+        __bindMouseScroll__() {
+
+        },
         // 计算滑块当前应该的位置
         getSliderPosition() {
             let self = this,
