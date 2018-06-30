@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link href="https://cdn.bootcss.com/minireset.css/0.0.2/minireset.min.css" rel="stylesheet">
     <style>
         /* 功能性css */
+
         .clearfix::after {
             content: "";
             display: block;
@@ -17,62 +19,88 @@
         }
 
         /* 布局 */
+
         body {
             background: #ccc;
         }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
         .scroll-demo {
             width: 540px;
             border: 1px solid #e5e5e5;
             background: #fff;
             margin: 50px auto;
         }
+
         /* 标签切换区 */
+
         .scroll-tab {
             height: 34px;
             border-bottom: 1px solid #e5e5e5;
             color: #666;
             background: #f8f8f8;
         }
+
         .scroll-tab .tab-item {
             float: left;
             font: 14px/34px "Microsoft Yahei";
             height: 34px;
             text-align: center;
             border-right: 1px solid #e5e5e5;
+        }
+
+        .scroll-tab .tab-item a {
+            display: block;
+            line-height: 34px;
             padding: 0 20px;
         }
+
         .scroll-tab .tab-item {
             cursor: pointer;
         }
+
         .scroll-tab .tab-active {
             color: #f40;
             background: #fff;
             border-top: 2px solid #f40;
             box-sizing: border-box;
         }
+
         /* 滚动内容区 */
+
         .scroll-wrap {
             width: 100%;
             height: 300px;
             position: relative;
         }
+
         /* 滚动内容 */
+
         .scroll-wrap .scroll-content {
             padding: 0 20px;
             height: 100%;
             overflow: hidden;
+            position: relative;
         }
-        .scroll-wrap .scroll-content h3 {
+
+        .scroll-wrap .scroll-content h1 {
             font: 16px/3 "Microsoft YaHei";
             text-align: center;
             font-weight: 600;
         }
+
         .scroll-wrap .scroll-content p {
             font: 14px/20px "Arial";
             text-indent: 2em;
             margin-bottom: 20px;
         }
+
         /* 滚动条 */
+
         .scroll-wrap .scroll-bar {
             position: absolute;
             right: 0;
@@ -81,6 +109,7 @@
             width: 10px;
             background: #e1e1e1;
         }
+
         .scroll-wrap .scroll-slider {
             position: absolute;
             top: 0;
@@ -91,39 +120,75 @@
         }
     </style>
 </head>
+
 <body>
     <div class="scroll-demo">
         <!-- 标签切换区 -->
         <ul class="scroll-tab clearfix">
-            <li class="tab-item tab-active">javascript</li>
-            <li class="tab-item">java</li>
-            <li class="tab-item">python</li>
-            <li class="tab-item">GO</li>
+            <li class="tab-item tab-active">
+                <a href="#javascript">javascript</a>
+            </li>
+            <li class="tab-item">
+                <a href="#java">java</a>
+            </li>
+            <li class="tab-item">
+                <a href="#python">python</a>
+            </li>
+            <li class="tab-item">
+                <a href="#GO">GO</a>
+            </li>
         </ul>
         <!-- 滚动内容区 -->
         <div class="scroll-wrap">
             <!-- 滚动内容 -->
             <div class="scroll-content">
-                <h3 class="anchor">javascript</h3>
-                <div class="scroll-ol">
-                    <p>JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。</p>
-                    <p>Javascript脚本语言同其他语言一样，有它自身的基本数据类型，表达式和算术运算符及程序的基本程序框架。Javascript提供了四种基本的数据类型和两种特殊数据类型用来处理数据和文字。而变量提供存放信息的地方，表达式则可以完成较复杂的信息处理。</p>
-                </div>
-                <h3 class="anchor">java</h3>
-                <div class="scroll-ol">
-                    <p>Java是一门面向对象编程语言，不仅吸收了C++语言的各种优点，还摒弃了C++里难以理解的多继承、指针等概念，因此Java语言具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程</p>
-                    <p>Java具有简单性、面向对象、分布式、健壮性、安全性、平台独立与可移植性、多线程、动态性等特点 [2]  。Java可以编写桌面应用程序、Web应用程序、分布式系统和嵌入式系统应用程序等</p>
-                </div>
-                <h3 class="anchor">python</h3>
-                <div class="scroll-ol">
-                   <p>Python [1]  （英国发音：/ˈpaɪθən/ 美国发音：/ˈpaɪθɑːn/）, 是一种面向对象的解释型计算机程序设计语言，由荷兰人Guido van Rossum于1989年发明，第一个公开发行版发行于1991年。</p>
-                    <p>Python是纯粹的自由软件， 源代码和解释器CPython遵循 GPL(GNU General Public License)协议。Python语法简洁清晰，特色之一是强制用空白符(white space)作为语句缩进。</p>
-                </div>
-                <h3 class="anchor">GO</h3>
-                <div class="scroll-ol">
-                    <p>Go是一种新的语言，一种并发的、带垃圾回收的、快速编译的语言。它具有以下特点：</p>
-                    <p>它可以在一台计算机上用几秒钟的时间编译一个大型的Go程序。Go为软件构造提供了一种模型，它使依赖分析更加容易，且避免了大部分C风格include文件与库的开头。Go是静态类型的语言，它的类型系统没有层级。因此用户不需要在定义类型之间的关系上花费时间，这样感觉起来比典型的面向对象语言更轻量级。Go完全是垃圾回收型的语言，并为并发执行与通信提供了基本的支持。按照其设计，Go打算为多核机器上系统软件的构造提供一种方法。</p>
-                </div>
+                <section class="anchor" id="javascript">
+                    <h1>javascript</h1>
+                    <div class="scroll-ol">
+                        <p>JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。</p>
+                        <p>Javascript脚本语言同其他语言一样，有它自身的基本数据类型，表达式和算术运算符及程序的基本程序框架。Javascript提供了四种基本的数据类型和两种特殊数据类型用来处理数据和文字。而变量提供存放信息的地方，表达式则可以完成较复杂的信息处理。</p>
+                    </div>
+                </section>
+                <section class="anchor" id="java">
+                    <h1>java</h1>
+                    <div class="scroll-ol">
+                        <p>Java是一门面向对象编程语言，不仅吸收了C++语言的各种优点，还摒弃了C++里难以理解的多继承、指针等概念，因此Java语言具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程</p>
+                        <p>Java具有简单性、面向对象、分布式、健壮性、安全性、平台独立与可移植性、多线程、动态性等特点 [2] 。Java可以编写桌面应用程序、Web应用程序、分布式系统和嵌入式系统应用程序等</p>
+                    </div>
+                </section>
+                <section class="anchor" id="python">
+                    <h1>python</h1>
+                    <div class="scroll-ol">
+                        <p>Python [1] （英国发音：/ˈpaɪθən/ 美国发音：/ˈpaɪθɑːn/）, 是一种面向对象的解释型计算机程序设计语言，由荷兰人Guido van Rossum于1989年发明，第一个公开发行版发行于1991年。</p>
+                        <p>Python是纯粹的自由软件， 源代码和解释器CPython遵循 GPL(GNU General Public License)协议。Python语法简洁清晰，特色之一是强制用空白符(white
+                            space)作为语句缩进。
+                        </p>
+                        <p>
+                            自从20世纪90年代初Python语言诞生至今，它已被逐渐广泛应用于系统管理任务的处理和Web编程。 Python的创始人为Guido van Rossum。1989年圣诞节期间，在阿姆斯特丹，Guido为了打发圣诞节的无趣，决心开发一个新的脚本解释程序，作为ABC
+                            语言的一种继承。之所以选中Python（大蟒蛇的意思）作为该编程语言的名字，是因为他是一个叫Monty Python的喜剧团体的爱好者。 ABC是由Guido参加设计的一种教学语言。就Guido本人看来，ABC
+                            这种语言非常优美和强大，是专门为非专业程序员设计的。但是ABC语言并没有成功，究其原因，Guido 认为是其非开 标识 标识 放造成的。Guido 决心在Python 中避免这一错误。同时，他还想实现在ABC
+                            中闪现过但未曾实现的东西。 就这样，Python在Guido手中诞生了。可以说，Python是从ABC发展起来，主要受到了Modula-3（另一种相当优美且强大的语言，为小型团体所设计的）的影响。并且结合了Unix
+                            shell和C的习惯。 Python [5] 已经成为最受欢迎的程序设计语言之一。2011年1月，它被TIOBE编程语言排行榜评为2010年度语言。自从2004年以后，python的使用率呈线性增长
+                            [6] 。 由于Python语言的简洁性、易读性以及可扩展性，在国外用Python做科学计算的研究机构日益增多，一些知名大学已经采用Python来教授程序设计课程。例如卡耐基梅隆大学的编程基础、麻省理工学院的计算机科学及编程导论就使用Python语言讲授。众多开源的科学计算软件包都提供了Python的调用接口，例如著名的计算机视觉库OpenCV、三维可视化库VTK、医学图像处理库ITK。而Python专用的科学计算扩展库就更多了，例如如下3个十分经典的科学计算扩展库：NumPy、SciPy和matplotlib，它们分别为Python提供了快速数组处理、数值运算以及绘图功能。因此Python语言及其众多的扩展库所构成的开发环境十分适合工程技术、科研人员处理实验数据、制作图表，甚至开发科学计算应用程序。
+                            2018年3月，该语言作者在邮件列表上宣布Python 2.7将于2020年1月1日终止支持。用户如果想要在这个日期之后继续得到与Python 2.7有关的支持，则需要付费给商业供应商。
+                            [3]
+                        </p>
+                    </div>
+                </section>
+                <section class="anchor" id="GO">
+                    <h1>GO</h1>
+                    <div class="scroll-ol">
+                        <p>Go是一种新的语言，一种并发的、带垃圾回收的、快速编译的语言。它具有以下特点：</p>
+                        <p>它可以在一台计算机上用几秒钟的时间编译一个大型的Go程序。Go为软件构造提供了一种模型，它使依赖分析更加容易，且避免了大部分C风格include文件与库的开头。Go是静态类型的语言，它的类型系统没有层级。因此用户不需要在定义类型之间的关系上花费时间，这样感觉起来比典型的面向对象语言更轻量级。Go完全是垃圾回收型的语言，并为并发执行与通信提供了基本的支持。按照其设计，Go打算为多核机器上系统软件的构造提供一种方法。</p>
+                        <p>Go语言于2009年11月正式宣布推出，成为开放源代码项目，并在Linux及Mac OS X平台上进行了实现，后追加Windows系统下的实现。 谷歌资深软件工程师罗布·派克(Rob Pike)表示，“Go让我体验到了从未有过的开发效率。”派克表示，和今天的C++或C一样，Go是一种系统语言。他解释道，“使用它可以进行快速开发，同时它还是一个真正的编译语言，我们之所以现在将其开源，原因是我们认为它已经非常有用和强大。”
+                            2007年，谷歌把Go作为一个20%项目开始研发，即让员工抽出本职工作之外时间的20%，投入在该项目上。除了派克外，该项目的成员还有其它一些谷歌工程师。 派克表示，编译后Go代码的运行速度与C语言非常接近，而且编译速度非常快，就像在使用一个交互式语言。
+                            现有编程语言均未专门对多核处理器进行优化。派克表示，Go就是谷歌工程师为这类程序编写的一种语言。它不是针对编程初学者设计的，但学习使用它也不是非常困难。Go支持面向对象，而且具有真正的闭包(closures)和反射(reflection)等功能。
+                            在学习曲线方面，派克认为Go与Java类似，对于Java开发者来说，应该能够轻松学会Go。 之所以将Go作为一个开源项目发布，目的是让开源社区有机会创建更好的工具来使用该语言，例如Eclipse
+                            IDE中的插件。目前还没有支持Go的IDE。 在目前谷歌公开发布的所有网络应用中，均没有使用Go。但是谷歌已经使用该语言开发了几个内部项目。 派克表示，Go是否会对谷歌即将推出的Chrome
+                            OS产生影响，现在还言之尚早，不过Go的确可以和Native Client配合使用。他表示，“Go可以让应用完美的运行在浏览器内。”例如，使用Go可以更高效的实现Wave，无论是在前端还是后台。</p>
+                    </div>
+                </section>
+
             </div>
             <!-- 滚动条 -->
             <div class="scroll-bar">
@@ -133,6 +198,7 @@
         </div>
     </div>
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="./static/CusScrollBar.js"></script>
     <script>
         new CusScrollBar({
@@ -142,4 +208,5 @@
         })
     </script>
 </body>
+
 </html>
