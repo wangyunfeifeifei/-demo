@@ -4,7 +4,7 @@ const router = express.Router()
 const {checkNotLogin} = require('../middlewares/check')
 
 router.get('/', checkNotLogin, function (req, res, next) {
-  res.send('登录页')
+  res.render('signin')
 })
 
 router.post('/', checkNotLogin, function (req, res, next) {
