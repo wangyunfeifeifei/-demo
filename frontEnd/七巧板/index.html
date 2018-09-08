@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #canvas {
+      display: block;
+      margin:100px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="canvas" width="500" height="500"></canvas>
+  <script>
+    let canvas =  document.getElementById("canvas")
+    let ctx = canvas.getContext('2d')
+
+    const shapes = [
+      {path:[{x: 0, y: 0}, {x: 500, y: 0}, {x: 250, y: 250}], color: '#b4ff56'},
+      {path:[{x: 0, y: 0}, {x: 0, y: 500}, {x: 250, y: 250}], color: '#4db6d5'},
+      {path:[{x: 250, y: 250}, {x: 375, y: 125}, {x: 375, y: 375}], color: '#faf800'},
+      {path:[{x: 375, y: 125}, {x: 375, y: 375}, {x: 500, y: 250}, {x: 500, y: 0}], color:'#ff0053'},
+      {path:[{x: 250, y: 250}, {x: 125, y: 375}, {x: 250, y: 500}, {x: 375, y: 375}], color: '#a98bc3'},
+      {path:[{x: 125, y: 375}, {x: 0, y: 500}, {x: 250, y: 500}], color: '#ff80cc'},
+      {path:[{x: 250, y: 500}, {x: 500, y: 500}, {x: 500, y: 250}], color: '#ffcb00'}
+    ]
+
+    shapes.forEach(shape => {
+      draw(shape.path, shape.color)
+    })
+
+    function draw(path, color) {
+      ctx.beginPath()
+      ctx.moveTo(path[0].x, path[0].y)
+      path.forEach(point => {
+        ctx.lineTo(point.x, point.y)
+      })
+      ctx.fillStyle = color
+      ctx.fill()
+      ctx.closePath()
+    }
+  </script>
+</body>
+
+</html>
