@@ -41,7 +41,6 @@ function render (ctx) {
     let minutes = ~~((SECONDS - hour * 3600)/ 60)
     let seconds = SECONDS % 60
 
-    console.log(hour, minutes, seconds)
     renderDigit(MARGIN_LEFT, MARGIN_TOP, ~~(hour/10), ctx)
     renderDigit(MARGIN_LEFT + 15*(RADIUS+1), MARGIN_TOP, hour%10, ctx)
 

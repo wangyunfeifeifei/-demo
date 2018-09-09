@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        const WINDOW_WIDTH = 1024
+        const WINDOW_HEIGHT = 768
+        let boll = {x: 500, y: 300, a: 2, vx: 1, vy: 5, color: '#4db6d5'}
+        window.onload = function() {
+            let canvas = document.getElementById('canvas')
+            let ctx = canvas.getContext('2d')
+            canvas.width = WINDOW_WIDTH
+            canvas.height = WINDOW_HEIGHT
+            animate(ctx)
+        }
+        function animate(ctx) {
+            render(ctx)
+            update()
+            requestAnimationFrame(animate.bind(null, ctx))
+        }
+        function render(ctx) {
+            ctx.beginPath()
+            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+            ctx.arc(boll.x, boll.y, 10, 0, 2*Math.PI)
+            ctx.closePath()
+            ctx.fillStyle = boll.color
+            ctx.fill()
+        }
+        function update() {
+            boll.x += boll.vx
+            boll.y += boll.vy
+            boll.vy += boll.a
+            if (boll.y > WINDOW_HEIGHT - 10) {
+                boll.y = WINDOW_HEIGHT - 10
+                boll.vy = -boll.vy*0.8
+            }
+        }
+    </script>
+</body>
+</html>
